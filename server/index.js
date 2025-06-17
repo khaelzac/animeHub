@@ -18,6 +18,9 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use('/api', router);
+app.get('/', (req, res) => {
+    res.send('Welcome to the Anime Hub API');
+});
 
 const port = 5000;
 const server = app.listen(port, () => {
