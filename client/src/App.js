@@ -5,25 +5,30 @@ import axios from 'axios'
 function App() {
   const [title, setTitle] = useState({})
   const [loading, setLoading] = useState(true)
+  let lastCall = 0;
+  const delay = 8000;
 
   const fetchTitle = async () => {
-    const response = await axios.get('https://animehub-613r.onrender.com/api/anime');
-    const data = response.data;
-    setTitle(data);
-    setLoading(false);
+    const now = Date.now();
+    if (now - lastCall > delay) {
+      lastCall = now;
+      const response = await axios.get('https://animehub-613r.onrender.com/api/anime');
+      const data = response.data;
+      setTitle(data);
+      setLoading(false);
 
-    
+    }
   }
   useEffect(() => {
-    
+
     fetchTitle();
     const onScroll = () => {
-    // your scroll logic
-  };
+      // your scroll logic
+    };
 
-  window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
 
-  return () => window.removeEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
     // console.log(title);
   }, [])
   return (
