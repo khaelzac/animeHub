@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const corsOptions = {
-    origin: 'http://localhost:3000', // ✅ correct — no trailing slash
+    origin: 'https://anime-hub-7p23.vercel.app/', // ✅ correct — no trailing slash
     credentials: true,
     optionSuccessStatus: 200
 };
