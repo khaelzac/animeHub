@@ -7,7 +7,7 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   const fetchTitle = async () => {
-    const response = await axios.get('http://localhost:5000/api/anime');
+    const response = await axios.get('https://animehub-613r.onrender.com/api/anime');
     const data = response.data;
     setTitle(data);
     setLoading(false);

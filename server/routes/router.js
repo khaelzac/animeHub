@@ -1,6 +1,8 @@
 // routes/anime.js
 const express = require('express');
 const router = express.Router();// Works in Node.js < 18
+const fetch = require('node-fetch'); // ✅ This will now work correctly
+
 
 
 //Popular Anime Route
